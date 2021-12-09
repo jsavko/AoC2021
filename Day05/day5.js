@@ -22,6 +22,7 @@ while ((m = regex.exec(fileContent)) !== null) {
     LineArray.push(object)
 }
 
+
 for(line of LineArray) {
     //Straight Lines only
     if ((line.startX == line.endX) || (line.startY == line.endY)) {
@@ -36,4 +37,9 @@ for(line of LineArray) {
     }
 
 
+
+}
+
+
+//console.log(LineGrid)
 console.log(pt1count)
