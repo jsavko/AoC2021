@@ -41,8 +41,7 @@ for(line of LineArray) {
             }
         }
     } else { 
-        //Find Direction of line (part 2)
-
+        //Diagnal Lines for Part 2
         //Find Slope
         let m = (line.endY - line.startY)/(line.endX - line.startX);
         let b = line.startY - m*line.startX;
