@@ -47,7 +47,6 @@ for(line of LineArray) {
         let m = (line.endY - line.startY)/(line.endX - line.startX);
         let b = line.startY - m*line.startX;
         // Y = mx+b;
-        let YY = m*line.startX + b;
         //console.log(line); 
         for (let x = Math.min(line.startX, line.endX); x <= Math.max(line.startX, line.endX); x++) {
             let y = m*x + b;
