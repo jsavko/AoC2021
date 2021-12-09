@@ -1,6 +1,7 @@
 const fs = require("fs");
 const { endianness } = require("os");
 const { exit } = require("process");
+const { start } = require("repl");
 
 const buffer = fs.readFileSync("input.txt");
 const fileContent = buffer.toString();
@@ -22,6 +23,11 @@ while ((m = regex.exec(fileContent)) !== null) {
     LineArray.push(object)
 }
 
+function operators(operation, a, b) {
+    if (operation == '<=') { return a <= b }
+    if (operation == '>=') { return a >= b }
+    return false;
+}
 
 for(line of LineArray) {
     //Straight Lines only
@@ -34,8 +40,23 @@ for(line of LineArray) {
                 if (value === 1 ) pt1count++;
             }
         }
-    }
+    } else { 
+        //Find Direction of line (part 2)
 
+        //Find Slope
+        let m = (line.endY - line.startY)/(line.endX - line.startX);
+        let b = line.startY - m*line.startX;
+        // Y = mx+b;
+        let YY = m*line.startX + b;
+        //console.log(line); 
+        for (let x = Math.min(line.startX, line.endX); x <= Math.max(line.startX, line.endX); x++) {
+            let y = m*x + b;
+            //console.log(`${x},${y}`)
+            let value = LineGrid[`${x},${y}`]  ?? 0;
+            LineGrid[`${x},${y}`] = value +1;
+            if (value === 1 ) pt1count++;
+        }
+    }
 
 
 }
