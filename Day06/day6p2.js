@@ -1,3 +1,4 @@
+console.time("exetime");
 const fs = require("fs");
 const { endianness } = require("os");
 const { exit } = require("process");
@@ -54,3 +55,4 @@ for (let i = 0; i<9; i++ ){
 }
 
 console.log(FishCount)
+console.timeEnd("exetime");

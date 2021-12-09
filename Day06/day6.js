@@ -1,3 +1,4 @@
+console.time("exetime");
 const fs = require("fs");
 const { endianness } = require("os");
 const { exit } = require("process");
@@ -46,3 +47,4 @@ for (let i=0; i < days; i++) {
 }
 
 console.log('Fish Count on Day %d is: %d', days, fishArray.length)
+console.timeEnd("exetime");
